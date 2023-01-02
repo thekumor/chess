@@ -13,19 +13,19 @@ namespace chess {
 		if (m_Identifier == 0)
 			Generate();
 
+		Bind();
+		CHESS_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
+		//CHESS_CHECK_ERROR(glBindBuffer(GL_ARRAY_BUFFER, 0)); // unbinds
+
 		m_Size = size;
+
 		float* point = (float*)data;
+
 		for (uint32_t i = 0; i < size / sizeof(float); i++)
 		{
 			m_Data.push_back(*point);
 			point++;
 		}
-
-		Bind();
-		CHESS_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
-		// Commented due to vertex attrib pointers.
-		//CHESS_CHECK_ERROR(glBindBuffer(GL_ARRAY_BUFFER, 0)); // unbinds
-
 	}
 
 	void VertexBuffer::Bind() const
@@ -56,18 +56,19 @@ namespace chess {
 		if (m_Identifier == 0)
 			Generate();
 
+		Bind();
+		CHESS_CHECK_ERROR(glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
+		//CHESS_CHECK_ERROR(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)); // unbinds
+
 		m_Size = size;
+
 		uint32_t* point = (uint32_t*)data;
+
 		for (uint32_t i = 0; i < size / sizeof(uint32_t); i++)
 		{
 			m_Data.push_back(*point);
 			point++;
 		}
-
-		Bind();
-		CHESS_CHECK_ERROR(glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
-		//CHESS_CHECK_ERROR(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)); // unbinds
-
 	}
 
 	void IndexBuffer::Bind() const

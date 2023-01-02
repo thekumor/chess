@@ -18,6 +18,8 @@ namespace chess {
 			CHESS_CHECK_ERROR(glGenVertexArrays(1, &vao));
 			CHESS_CHECK_ERROR(glBindVertexArray(vao));
 
+			// Layout
+
 			return gladInitialized;
 		}
 

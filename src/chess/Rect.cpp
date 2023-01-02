@@ -65,7 +65,6 @@ namespace chess {
 	void Rect::Draw()
 	{
 		m_VertexBuffer.Bind();
-		m_IndexBuffer.Bind();
 		renderer::DrawElements();
 	}
 
