@@ -1,11 +1,3 @@
 # Directories
-CMakeFiles/
-chess.dir/
-Debug/
-x64/
-
-# File extensions
-*.sln
-*.vcxproj
-*.filters
-*.txt
+.vs/
+build/
