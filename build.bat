@@ -1,0 +1,1 @@
+Powershell.exe -ExecutionPolicy remotesigned -File scripts/build.ps1
