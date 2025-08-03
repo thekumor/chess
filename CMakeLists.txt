@@ -42,3 +42,4 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 	"$<$<CONFIG:MinSizeRel>:${SDL_DIR}/lib-win32-x64/Release/sdl3.lib>"
 	"$<$<CONFIG:RelWithDebInfo>:${SDL_DIR}/lib-win32-x64/Release/sdl3.lib>"
 )
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE "src/chess/resource.rc")
