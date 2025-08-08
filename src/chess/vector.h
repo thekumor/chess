@@ -5,7 +5,10 @@
 #define Vec2 chess::Vector2<std::int32_t>
 #define Vec3 chess::Vector3<std::int32_t>
 #define Vec4 chess::Vector4<std::int32_t>
+
 #define Color chess::Vector4<std::int32_t>
+#define ObjectPos chess::Vector2<float>
+#define ObjectSize chess::Vector2<float>
 
 namespace chess
 {
@@ -29,6 +32,23 @@ namespace chess
 		Vector2() :
 			X(0), Y(0)
 		{
+		}
+
+		[[nodiscard]] Vector2 operator+(const Vector2& other) const
+		{
+			return Vector2(x + other.x, y + other.y);
+		}
+		[[nodiscard]] Vector2 operator-(const Vector2& other) const
+		{
+			return Vector2(x - other.x, y - other.y);
+		}
+		[[nodiscard]] Vector2 operator*(const Vector2& other) const
+		{
+			return Vector2(x * other.x, y * other.y);
+		}
+		[[nodiscard]] Vector2 operator/(const Vector2& other) const
+		{
+			return Vector2(x / other.x, y / other.y);
 		}
 
 		union
@@ -61,6 +81,23 @@ namespace chess
 		Vector3() :
 			X(0), Y(0), Z(0)
 		{
+		}
+
+		[[nodiscard]] Vector3 operator+(const Vector3& other) const
+		{
+			return Vector3(x + other.x, y + other.y, z + other.z);
+		}
+		[[nodiscard]] Vector3 operator-(const Vector3& other) const
+		{
+			return Vector3(x - other.x, y - other.y, z - other.z);
+		}
+		[[nodiscard]] Vector3 operator*(const Vector3& other) const
+		{
+			return Vector3(x * other.x, y * other.y, z * other.z);
+		}
+		[[nodiscard]] Vector3 operator/(const Vector3& other) const
+		{
+			return Vector3(x / other.x, y / other.y, z / other.z);
 		}
 
 		union
@@ -98,6 +135,23 @@ namespace chess
 		Vector4() :
 			X(0), Y(0), Z(0), W(0)
 		{
+		}
+
+		[[nodiscard]] Vector4 operator+(const Vector4& other) const
+		{
+			return Vector4(x + other.x, y + other.y, z + other.z, w + other.w);
+		}
+		[[nodiscard]] Vector4 operator-(const Vector4& other) const
+		{
+			return Vector4(x - other.x, y - other.y, z - other.z, w - other.w);
+		}
+		[[nodiscard]] Vector4 operator*(const Vector4& other) const
+		{
+			return Vector4(x * other.x, y * other.y, z * other.z, w * other.w);
+		}
+		[[nodiscard]] Vector4 operator/(const Vector4& other) const
+		{
+			return Vector4(x / other.x, y / other.y, z / other.z, w / other.w);
 		}
 
 		union

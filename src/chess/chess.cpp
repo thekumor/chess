@@ -1,3 +1,5 @@
+#define STB_IMAGE_IMPLEMENTATION
+
 // Chess
 #include <chess/game.h>
 #include <chess/vector.h>

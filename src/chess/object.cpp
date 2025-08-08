@@ -46,7 +46,7 @@ namespace chess
 	void Sprite::Draw(SDL_Renderer* renderer)
 	{
 		SDL_SetRenderDrawColor(renderer, m_Color.r, m_Color.g, m_Color.b, m_Color.a);
-		SDL_RenderTexture(renderer, m_Texture->thisTexture, nullptr, &m_Rect);
+		SDL_RenderTexture(renderer, m_Texture->ThisTexture, nullptr, &m_Rect);
 	}
 
 	void Sprite::SetSize(const Vector2<float>& size)
@@ -68,13 +68,19 @@ namespace chess
 		m_Texture = texture;
 	}
 
-	Texture CreateTexture(const std::string& path, SDL_Renderer* renderer)
+	Texture::Texture(const std::string& path, SDL_Renderer* renderer)
+		: Path(path)
 	{
-		Texture text;
-		text.Path = path;
-		text.thisTexture = nullptr;
+		int x, y, channels;
+		stbi_uc* buffer = stbi_load(path.c_str(), &x, &y, &channels, 4);
 
-		return text;
+		SDL_Surface* surface = SDL_CreateSurfaceFrom(x, y, SDL_PIXELFORMAT_RGBA32, buffer, x * 4);
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+		ThisTexture = texture;
+		
+		SDL_DestroySurface(surface);
+		stbi_image_free(buffer);
+
 	}
 
 }
